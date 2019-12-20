@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.1
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VER}
     container_name: es01
     environment:
       - node.name=es01
@@ -20,7 +20,7 @@ services:
       - 9200:9200
 
   kibana:
-    image: docker.elastic.co/kibana/kibana:7.5.1
+    image: docker.elastic.co/kibana/kibana:${KIBANA_VER}
     container_name: kibana
     environment:
       SERVER_NAME: kibana.home.by
