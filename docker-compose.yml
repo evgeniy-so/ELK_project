@@ -15,7 +15,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./tmp/elastic:/usr/share/elasticsearch/data
+      - /tmp/elastic:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
     #networks:
