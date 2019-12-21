@@ -31,4 +31,19 @@ services:
 
     depends_on:
       - 'es01'
-      
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:${LOGSTASH_VER}
+    container_name: logstash
+    environment:
+      XPACK_MONITORING_ELASTICSEARCH_HOSTS: http://es01:9200
+
+    volumes:
+      - /tmp/logstash:/usr/share/logstash/pipeline
+
+    ports:
+      - '1514:1514/udp'
+      - '1514:1514/tcp'
+
+    depends_on:
+      - 'es01'    
